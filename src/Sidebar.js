@@ -1,26 +1,30 @@
 import Sugestao from './Sugestao';
+import Usuario from './Usuario';
 
 export default function Sidebar(){
+    const dados =  {nome:"catanacomics",
+                    nick:"Catana",
+                sugestoes: ["bad.vibes.memes",
+                            "chibirdart",
+                            "razoesparaacreditar",
+                            "adorable_animals",
+                            "smallcutecats"
+            ]
+    };
+    const sugestoesComponentizadas = (dados.sugestoes).map(item => <Sugestao nome={item}/>);
+
     return(
         <div class="sidebar">
-            <div class="usuario">
-                <img src="assets/img/catanacomics.svg" />
-                <div class="texto">
-                    <strong>catanacomics</strong>
-                    Catana
-                </div>
-            </div>
+            
+            <Usuario nome={dados.nome} nick={dados.nick}/>
 
             <div class="sugestoes">
                 <div class="titulo">
                     Sugestões para você
                     <div>Ver tudo</div>
                 </div>
-                <Sugestao nome="bad.vibes.memes"/>
-                <Sugestao nome="chibirdart"/>
-                <Sugestao nome="razoesparaacreditar"/>
-                <Sugestao nome="adorable_animals"/>
-                <Sugestao nome="smallcutecats"/>
+                
+                {sugestoesComponentizadas}
                 
             </div>
 
